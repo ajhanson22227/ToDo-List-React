@@ -1,24 +1,32 @@
-import React, { useState, useEffect } from "react";
-
-/*
-  Project will be an object with
-  {
-    title: text,
-    tasks: Array
-  }
-*/
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from "react";
+import { Route, Switch } from "react-router-dom";
+import { fetchUserStorage } from "./api/userCalls";
+import SignInPage from "./components/SignInPage/SignInPage";
+import SignUpPage from "./components/SignUpPage/SignUpPage";
 
 const App = () => {
-  const [projects, setProjects] = useState([]);
-
-  useEffect(() => {
-    let projArr = [];
-    
-  })
+  const [user, setUser] = useState(fetchUserStorage());
 
   return (
     <div>
-      <p>Hello</p>
+      <Switch>
+        <Route
+          path="/user/signin"
+          exact
+          component={() => <SignInPage setUser={setUser} />}
+        />
+        <Route
+          path="/user/create"
+          exact
+          component={() => <SignUpPage setUser={setUser} />}
+        />
+        <Route
+          path="/"
+          exact
+          component={() => <SignInPage setUser={setUser} />}
+        />
+      </Switch>
     </div>
   );
 };
