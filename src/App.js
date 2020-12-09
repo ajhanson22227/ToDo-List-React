@@ -17,7 +17,7 @@ const App = () => {
           component={() => <SignInPage setUser={setUser} />}
         />
         <Route
-          path="/user/create"
+          path="/user/signup"
           exact
           component={() => <SignUpPage setUser={setUser} />}
         />
