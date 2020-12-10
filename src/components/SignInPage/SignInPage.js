@@ -28,7 +28,7 @@ const SignInPage = ({ setUser }) => {
     } else {
       localStorage.setItem("user", JSON.stringify(res.user));
       setUser(res.user);
-      history.push("/projects");
+      history.push("/project");
     }
   };
 

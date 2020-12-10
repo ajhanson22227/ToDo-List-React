@@ -9,6 +9,7 @@ import ProjectCreate from "./components/ProjectCreate/ProjectCreate";
 
 const App = () => {
   const [user, setUser] = useState(fetchUserStorage());
+  const [projects, setProjects] = useState([]);
 
   return (
     <div>
@@ -29,14 +30,15 @@ const App = () => {
           component={() => <SignInPage setUser={setUser} />}
         />
         <Route
-          path="/projects"
+          path="/project"
           exact
-          component={() => <ProjectPage user={user} />}
-        />
-        <Route
-          path="/project/create"
-          exact
-          component={() => <ProjectCreate user={user} />}
+          component={() => (
+            <ProjectPage
+              user={user}
+              projects={projects}
+              setProjects={setProjects}
+            />
+          )}
         />
       </Switch>
     </div>

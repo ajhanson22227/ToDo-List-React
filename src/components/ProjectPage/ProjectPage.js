@@ -1,24 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Route, useRouteMatch } from "react-router-dom";
 import { fetchProjects } from "../../api/fetchCalls";
+import ProjectCreate from "../ProjectCreate/ProjectCreate";
 
 const ProjectPage = ({ user }) => {
-  const [projects, setProjects] = useState(null);
-
-  useEffect(() => {
-    const getProjects = async () =>
-      setProjects(await Promise.resolve(fetchProjects(user)));
-    getProjects();
-  }, [user]);
-
-  console.log(projects);
-
+  let { path } = useRouteMatch();
+  console.log(path);
   return (
     <div>
-      <p>{projects !== null ? projects.length : null} </p>
+      {/* <p>{projects ? projects.length : null} </p> */}
       <p>World</p>
       <p>or should I say.. Hello {user.username}</p>
-      <Link to="/project/create">Create New Project</Link>
+      <Link to={`/create`}>Create New Project</Link>
+
+      <Route path="/create" component={() => <ProjectCreate user={user} />} />
     </div>
   );
 };
