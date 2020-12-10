@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { createUser } from "../../api/userCalls";
 
-const SignUpPage = () => {
+const SignUpPage = ({ setUser }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  let history = useHistory();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -29,6 +31,10 @@ const SignUpPage = () => {
     if (res.err) {
       setError(res.err);
       return;
+    } else {
+      localStorage.setItem("user", JSON.stringify(res.user));
+      setUser(res.user);
+      history.push("/projects");
     }
   };
 

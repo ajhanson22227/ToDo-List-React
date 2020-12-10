@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import { fetchUserStorage } from "./api/userCalls";
 import SignInPage from "./components/SignInPage/SignInPage";
 import SignUpPage from "./components/SignUpPage/SignUpPage";
+import ProjectPage from "./components/ProjectPage/ProjectPage";
 
 const App = () => {
   const [user, setUser] = useState(fetchUserStorage());
@@ -25,6 +26,11 @@ const App = () => {
           path="/"
           exact
           component={() => <SignInPage setUser={setUser} />}
+        />
+        <Route
+          path="/projects"
+          exact
+          component={() => <ProjectPage user={user} />}
         />
       </Switch>
     </div>

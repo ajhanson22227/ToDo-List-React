@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { loginUser } from "../../api/userCalls";
 
-const SignInPage = () => {
+const SignInPage = ({ setUser }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  let history = useHistory();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (!username || !password) {
       setError("Cannot Leave Any Field Blank");
@@ -19,7 +21,15 @@ const SignInPage = () => {
       username: username,
       password: password,
     };
-    console.log(user);
+    const res = await Promise.resolve(loginUser(user));
+    if (res.err) {
+      setError(res.err);
+      return;
+    } else {
+      localStorage.setItem("user", JSON.stringify(res.user));
+      setUser(res.user);
+      history.push("/projects");
+    }
   };
 
   return (
