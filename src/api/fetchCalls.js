@@ -30,3 +30,24 @@ export const loginUser = (data) => {
     },
   }).then((response) => response.json());
 };
+
+export const fetchProjects = (data) => {
+  return fetch(`${URL}/projects`, {
+    method: "get",
+    headers: {
+      "Content-Type": "application/json",
+      "user-token": data.token,
+    },
+  }).then((response) => response.json());
+};
+
+export const createProject = (data, user) => {
+  return fetch(`${URL}/projects/create`, {
+    method: "post",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+      "user-token": user.token,
+    },
+  }).then((response) => response.json());
+};

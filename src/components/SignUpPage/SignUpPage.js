@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { createUser } from "../../api/userCalls";
+import { createUser } from "../../api/fetchCalls";
 
 const SignUpPage = ({ setUser }) => {
   const [username, setUsername] = useState("");

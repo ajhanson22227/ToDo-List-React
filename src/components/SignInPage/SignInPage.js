@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { loginUser } from "../../api/userCalls";
+import { loginUser } from "../../api/fetchCalls";
 
 const SignInPage = ({ setUser }) => {
   const [username, setUsername] = useState("");
