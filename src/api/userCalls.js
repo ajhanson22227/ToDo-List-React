@@ -10,3 +10,13 @@ export const fetchUserStorage = () => {
     return { err };
   }
 };
+
+export const createUser = (data) => {
+  return fetch(`${URL}/user/create`, {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((response) => response.json());
+};

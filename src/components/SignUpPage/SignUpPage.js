@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createUser } from "../../api/userCalls";
 
 const SignUpPage = () => {
   const [username, setUsername] = useState("");
@@ -6,7 +7,7 @@ const SignUpPage = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (!username || !password || !confirmPassword) {
       setError("Cannot Leave Any Field Blank");
@@ -24,7 +25,11 @@ const SignUpPage = () => {
       username: username,
       password: password,
     };
-    console.log(user);
+    const res = await Promise.resolve(createUser(user));
+    if (res.err) {
+      setError(res.err);
+      return;
+    }
   };
 
   return (
