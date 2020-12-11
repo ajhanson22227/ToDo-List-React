@@ -1,17 +1,20 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { createProject } from "../../api/fetchCalls";
 
 const ProjectCreate = ({ user, setProjects }) => {
+  let history = useHistory();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const project = {
       title: title,
       description: description,
     };
-    const newProject = await Promise.resolve(createProject(project, user));
-    console.log(newProject);
+    await Promise.resolve(createProject(project, user));
+    setTimeout(() => history.push("/project"), 1000);
   };
 
   return (

@@ -32,12 +32,13 @@ const App = () => {
         <Route
           path="/project"
           exact
+          component={() => <ProjectPage user={user} />}
+        />
+        <Route
+          path="/project/create"
+          exact
           component={() => (
-            <ProjectPage
-              user={user}
-              projects={projects}
-              setProjects={setProjects}
-            />
+            <ProjectCreate user={user} setProjects={setProjects} />
           )}
         />
       </Switch>

@@ -1,21 +1,38 @@
 import React, { useEffect, useState } from "react";
-import { Link, Route, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { fetchProjects } from "../../api/fetchCalls";
-import ProjectCreate from "../ProjectCreate/ProjectCreate";
 
 const ProjectPage = ({ user }) => {
-  let { path } = useRouteMatch();
-  console.log(path);
+  const [loading, setLoading] = useState(false);
+  const projects = useProjects(user, setLoading);
   return (
     <div>
-      {/* <p>{projects ? projects.length : null} </p> */}
-      <p>World</p>
-      <p>or should I say.. Hello {user.username}</p>
-      <Link to={`/create`}>Create New Project</Link>
+      {loading ? (
+        <p>is loading, hold on</p>
+      ) : (
+        <div>
+          <p>Hello {user.username}</p>
+          <p>You have {projects ? projects.length : 0} projects</p>
 
-      <Route path="/create" component={() => <ProjectCreate user={user} />} />
+          <Link to={`/project/create`}>Create New Project</Link>
+        </div>
+      )}
     </div>
   );
+};
+
+const useProjects = (user, setLoading) => {
+  const [project, setProject] = useState(null);
+
+  useEffect(() => {
+    const getProjects = async () => {
+      setLoading(true);
+      setProject(await Promise.resolve(fetchProjects(user)));
+      setLoading(false);
+    };
+    getProjects();
+  }, []);
+  return project;
 };
 
 export default ProjectPage;
