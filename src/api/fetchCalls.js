@@ -41,6 +41,15 @@ export const fetchProjects = (data) => {
   }).then((response) => response.json());
 };
 
+export const fetchProject = (data) => {
+  return fetch(`${URL}/projects/${data}/getproject`, {
+    method: "get",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((response) => response.json());
+};
+
 export const createProject = (data, user) => {
   return fetch(`${URL}/projects/create`, {
     method: "post",
@@ -50,4 +59,14 @@ export const createProject = (data, user) => {
       "user-token": user.token,
     },
   }).then((response) => response.json());
+};
+
+export const deleteProject = (data) => {
+  console.log(data);
+  fetch(`${URL}/projects/${data}/delete`, {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 };
