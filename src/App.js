@@ -6,6 +6,7 @@ import SignInPage from "./components/SignInPage/SignInPage";
 import SignUpPage from "./components/SignUpPage/SignUpPage";
 import ProjectPage from "./components/Project/ProjectPage/ProjectPage";
 import ProjectCreate from "./components/Project/ProjectCreate/ProjectCreate";
+import ProjectDelete from "./components/Project/ProjectDelete/ProjectDelete";
 
 const App = () => {
   const [user, setUser] = useState(fetchUserStorage());
@@ -39,6 +40,11 @@ const App = () => {
         component={() => (
           <ProjectCreate user={user} setProjects={setProjects} />
         )}
+      />
+      <Route
+        path="/project/:id/delete"
+        exact
+        component={() => <ProjectDelete />}
       />
     </Switch>
   );
