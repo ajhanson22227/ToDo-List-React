@@ -3,28 +3,31 @@ import { useParams } from "react-router-dom";
 import { fetchProject } from "../../../api/fetchCalls";
 
 const ProjectView = () => {
+  const [busy, setBusy] = useState(true);
   const { id } = useParams();
-  const project = useProject(id);
-  console.log(project);
-  return (
+  const project = useProject(id, setBusy);
+  return busy ? (
+    <p>No Bueno</p>
+  ) : (
     <div>
-      <p>Hello</p>
-      <p>THis is projects</p>
+      <p>{project.title}</p> <p>{project.description}</p>
+      <p>{project.tasks.length} Tasks</p>
     </div>
   );
 };
 
-const useProject = (id) => {
+const useProject = (id, setBusy) => {
   const [project, setProject] = useState(null);
   useEffect(() => {
     const fetchProjectAPI = async () => {
       await fetchProject(id).then((response) => {
-        console.log(response);
+        setBusy(true);
         setProject(response);
+        setBusy(false);
       });
     };
     fetchProjectAPI();
-  }, [id]);
+  }, [id, setBusy]);
   return project;
 };
 
