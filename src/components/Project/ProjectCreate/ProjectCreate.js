@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { createProject } from "../../api/fetchCalls";
+import { createProject } from "../../../api/fetchCalls";
 
 const ProjectCreate = ({ user, setProjects }) => {
   let history = useHistory();

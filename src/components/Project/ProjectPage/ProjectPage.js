@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchProjects } from "../../api/fetchCalls";
-import Project from "../Project/Project";
+import { fetchProjects } from "../../../api/fetchCalls";
+import Project from "../Project";
 
 const ProjectPage = ({ user }) => {
   const [loading, setLoading] = useState(false);
