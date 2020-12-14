@@ -12,37 +12,35 @@ const App = () => {
   const [projects, setProjects] = useState([]);
 
   return (
-    <div>
-      <Switch>
-        <Route
-          path="/user/signin"
-          exact
-          component={() => <SignInPage setUser={setUser} />}
-        />
-        <Route
-          path="/user/signup"
-          exact
-          component={() => <SignUpPage setUser={setUser} />}
-        />
-        <Route
-          path="/"
-          exact
-          component={() => <SignInPage setUser={setUser} />}
-        />
-        <Route
-          path="/project"
-          exact
-          component={() => <ProjectPage user={user} />}
-        />
-        <Route
-          path="/project/create"
-          exact
-          component={() => (
-            <ProjectCreate user={user} setProjects={setProjects} />
-          )}
-        />
-      </Switch>
-    </div>
+    <Switch>
+      <Route
+        path="/user/signin"
+        exact
+        component={() => <SignInPage setUser={setUser} />}
+      />
+      <Route
+        path="/user/signup"
+        exact
+        component={() => <SignUpPage setUser={setUser} />}
+      />
+      <Route
+        path="/"
+        exact
+        component={() => <SignInPage setUser={setUser} />}
+      />
+      <Route
+        path="/project"
+        exact
+        component={() => <ProjectPage user={user} />}
+      />
+      <Route
+        path="/project/create"
+        exact
+        component={() => (
+          <ProjectCreate user={user} setProjects={setProjects} />
+        )}
+      />
+    </Switch>
   );
 };
 
