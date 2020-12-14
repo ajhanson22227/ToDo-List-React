@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useRouteMatch } from "react-router-dom";
 import { fetchProject } from "../../../api/fetchCalls";
 
 const ProjectView = () => {
   const [busy, setBusy] = useState(true);
   const { id } = useParams();
+  let { url } = useRouteMatch();
   const project = useProject(id, setBusy);
   return busy ? (
     <p>No Bueno</p>
   ) : (
     <div>
       <p>{project.title}</p> <p>{project.description}</p>
-      <p>{project.tasks.length} Tasks</p>
+      <p>
+        {project.tasks.length} Tasks <Link to={`${url}/task/create`}>Add</Link>
+      </p>
     </div>
   );
 };

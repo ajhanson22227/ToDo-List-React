@@ -8,6 +8,7 @@ import ProjectPage from "./components/Project/ProjectPage/ProjectPage";
 import ProjectCreate from "./components/Project/ProjectCreate/ProjectCreate";
 import ProjectDelete from "./components/Project/ProjectDelete/ProjectDelete";
 import ProjectView from "./components/Project/ProjectView/ProjectView";
+import TaskCreate from "./components/Task/TaskCreate/TaskCreate";
 
 const App = () => {
   const [user, setUser] = useState(fetchUserStorage());
@@ -47,7 +48,12 @@ const App = () => {
         exact
         component={() => <ProjectDelete />}
       />
-      <Route path="/project/:id/view" exact component={() => <ProjectView />} />
+      <Route path="/project/:id" exact component={() => <ProjectView />} />
+      <Route
+        path="/project/:projid/task/create"
+        exact
+        component={() => <TaskCreate />}
+      />
     </Switch>
   );
 };

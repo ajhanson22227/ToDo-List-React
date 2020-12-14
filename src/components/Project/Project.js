@@ -11,7 +11,7 @@ const Project = ({ project }) => {
         <p className="project-tasks">{project.tasks.length} Tasks</p>
       </div>
       <div className="project-link">
-        <Link to={`/project/${project._id}/view`}>View</Link>
+        <Link to={`/project/${project._id}`}>View</Link>
       </div>
       <div className="project-link">
         <Link to={`/project/${project._id}/delete`}>Delete</Link>
