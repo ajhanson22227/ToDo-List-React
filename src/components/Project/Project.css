@@ -5,7 +5,9 @@
 }
 
 .project {
-  font-size: 1.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   margin-top: 1em;
 }
 
@@ -13,4 +15,9 @@
 .project-description,
 .project-tasks {
   margin: 0;
+}
+
+.project-link {
+  margin-left: 0.5em;
+  padding: 0;
 }
