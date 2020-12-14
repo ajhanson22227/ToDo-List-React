@@ -14,7 +14,9 @@ const ProjectPage = ({ user }) => {
         <div>
           <p>Hello {user.username}</p>
           <p>You have {projects ? projects.length : 0} projects</p>
-          <Link to={`/project/create`}>Create New Project</Link>
+          <p>
+            <Link to={`/project/create`}>Create New Project</Link>
+          </p>
           <div className="project-container">{projects}</div>
         </div>
       )}
