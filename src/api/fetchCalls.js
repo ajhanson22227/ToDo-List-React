@@ -71,7 +71,6 @@ export const deleteProject = (data) => {
 };
 
 export const createTask = (data) => {
-  console.log(JSON.stringify(data));
   fetch(`${URL}/task/${data.project}/create`, {
     method: "post",
     body: JSON.stringify(data),

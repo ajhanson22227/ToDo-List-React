@@ -5,7 +5,6 @@ import { createTask } from "../../../api/fetchCalls";
 const TaskCreate = () => {
   const { projid } = useParams();
   let history = useHistory();
-  const [busy, setBusy] = useState(true);
   const [description, setDescription] = useState("");
   const [priority, setPriority] = useState("");
 
@@ -25,7 +24,7 @@ const TaskCreate = () => {
       project: projid,
     };
     await Promise.resolve(createTask(task));
-    setTimeout(() => history.push("/project"), 1000);
+    setTimeout(() => history.push(`/project/${projid}`), 1000);
   };
 
   return (
@@ -47,30 +46,15 @@ const TaskCreate = () => {
           Priority
           <br />
           <label>
-            <input
-              type="radio"
-              name="priority"
-              value="Low"
-              //onChange={handlePriority}
-            />
+            <input type="radio" name="priority" value="Low" />
             Low
           </label>
           <label>
-            <input
-              type="radio"
-              name="priority"
-              value="Medium"
-              //onChange={handlePriority}
-            />
+            <input type="radio" name="priority" value="Medium" />
             Medium
           </label>
           <label>
-            <input
-              type="radio"
-              name="priority"
-              value="High"
-              //onChange={handlePriority}
-            />
+            <input type="radio" name="priority" value="High" />
             High
           </label>
         </label>
