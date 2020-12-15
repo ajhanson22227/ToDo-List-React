@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import { fetchUserStorage } from "./api/fetchCalls";
 import SignInPage from "./components/SignInPage/SignInPage";
 import SignUpPage from "./components/SignUpPage/SignUpPage";
@@ -26,11 +26,17 @@ const App = () => {
         exact
         component={() => <SignUpPage setUser={setUser} />}
       />
-      <Route
+      {/* <Route
         path="/"
         exact
-        component={() => <SignInPage setUser={setUser} />}
-      />
+        component={() =>
+          user !== null ? (
+            <ProjectPage user={user} />
+          ) : (
+            <SignInPage setUser={setUser} />
+          )
+        }
+      /> */}
       <Route
         path="/project"
         exact
@@ -54,6 +60,7 @@ const App = () => {
         exact
         component={() => <TaskCreate />}
       />
+      <Redirect from="/" to="/user/signin" />
     </Switch>
   );
 };
