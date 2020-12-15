@@ -62,9 +62,19 @@ export const createProject = (data, user) => {
 };
 
 export const deleteProject = (data) => {
-  console.log(data);
   fetch(`${URL}/projects/${data}/delete`, {
     method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+};
+
+export const createTask = (data) => {
+  console.log(JSON.stringify(data));
+  fetch(`${URL}/task/${data.project}/create`, {
+    method: "post",
+    body: JSON.stringify(data),
     headers: {
       "Content-Type": "application/json",
     },
