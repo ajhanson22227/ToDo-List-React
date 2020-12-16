@@ -11,3 +11,19 @@
   width: 100vw;
   min-height: 90vh;
 }
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+  color: #142d4c;
+}
+
+.create-project-button a:hover,
+.create-project-button a:visited,
+.create-project-button a:link,
+.create-project-button a:active {
+  text-decoration: none;
+  color: white;
+}
