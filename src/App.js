@@ -2,13 +2,14 @@
 import React, { useEffect, useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { fetchUserStorage } from "./api/fetchCalls";
-import SignInPage from "./components/SignInPage/SignInPage";
-import SignUpPage from "./components/SignUpPage/SignUpPage";
+import SignInPage from "./components/SignIn/SignInPage/SignInPage";
+import SignUpPage from "./components/SignIn/SignUpPage/SignUpPage";
 import ProjectPage from "./components/Project/ProjectPage/ProjectPage";
 import ProjectCreate from "./components/Project/ProjectCreate/ProjectCreate";
 import ProjectDelete from "./components/Project/ProjectDelete/ProjectDelete";
 import ProjectView from "./components/Project/ProjectView/ProjectView";
 import TaskCreate from "./components/Task/TaskCreate/TaskCreate";
+import "./App.css";
 
 const App = () => {
   const [user, setUser] = useState(fetchUserStorage());
