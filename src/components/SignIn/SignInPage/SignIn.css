@@ -105,3 +105,11 @@
   color: #142d4c;
   opacity: 1;
 }
+
+.no-account-text a:hover,
+.no-account-text a:visited,
+.no-account-text a:link,
+.no-account-text a:active {
+  color: #142d4c;
+  text-decoration: underline;
+}
