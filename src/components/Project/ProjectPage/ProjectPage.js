@@ -17,8 +17,10 @@ const ProjectPage = ({ user }) => {
         <div className="project-page-container">
           <div className="header">
             <div className="user-info">
-              <p>Hello {user.username}</p>
-              <p>You have {projects ? projects.length : 0} projects</p>
+              <p className="welcome-text">Hello {user.username}!</p>
+              <p className="project-number">
+                You have {projects ? projects.length : 0} projects
+              </p>
             </div>
             <div className="create-project-button">
               <Link to={`/project/create`}>Create New Project</Link>
