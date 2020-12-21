@@ -8,6 +8,7 @@ import ProjectPage from "./components/Project/ProjectPage/ProjectPage";
 import ProjectCreate from "./components/Project/ProjectCreate/ProjectCreate";
 import ProjectDelete from "./components/Project/ProjectDelete/ProjectDelete";
 import ProjectView from "./components/Project/ProjectView/ProjectView";
+import ProjectMain from "./components/Project/ProjectMain";
 import TaskCreate from "./components/Task/TaskCreate/TaskCreate";
 import "./App.css";
 
@@ -40,6 +41,10 @@ const App = () => {
       /> */}
       <Route
         path="/project"
+        component={() => <ProjectMain user={user} setProjects={setProjects} />}
+      />
+      {/* <Route
+        path="/project"
         exact
         component={() => <ProjectPage user={user} />}
       />
@@ -60,7 +65,7 @@ const App = () => {
         path="/project/:projid/task/create"
         exact
         component={() => <TaskCreate />}
-      />
+      /> */}
       <Redirect from="/" to="/user/signin" />
     </Switch>
   );
