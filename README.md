@@ -4,7 +4,7 @@ This is a project idea from https://www.theodinproject.com/courses/javascript/le
 
 I had originnaly completed this in JavaScript, my original repo can be found at https://github.com/ajhanson22227/ToDo-List-JS
 
-I wanted to recreate this project using React for the frontend and, in a separate repo found at https://github.com/ajhanson22227/ToDo-List-Express, Express for the backend.
+I wanted to recreate this project using React for the frontend and Express for the backend which can be found at https://github.com/ajhanson22227/ToDo-List-Express.
 
 ## Motivation
 
