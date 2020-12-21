@@ -8,8 +8,9 @@ import ProjectPage from "./components/Project/ProjectPage/ProjectPage";
 import ProjectCreate from "./components/Project/ProjectCreate/ProjectCreate";
 import ProjectDelete from "./components/Project/ProjectDelete/ProjectDelete";
 import ProjectView from "./components/Project/ProjectView/ProjectView";
-import ProjectMain from "./components/Project/ProjectMain";
 import TaskCreate from "./components/Task/TaskCreate/TaskCreate";
+import ProjectMain from "./components/Project/ProjectMain";
+
 import "./App.css";
 
 const App = () => {
@@ -28,44 +29,10 @@ const App = () => {
         exact
         component={() => <SignUpPage setUser={setUser} />}
       />
-      {/* <Route
-        path="/"
-        exact
-        component={() =>
-          user !== null ? (
-            <ProjectPage user={user} />
-          ) : (
-            <SignInPage setUser={setUser} />
-          )
-        }
-      /> */}
       <Route
         path="/project"
         component={() => <ProjectMain user={user} setProjects={setProjects} />}
       />
-      {/* <Route
-        path="/project"
-        exact
-        component={() => <ProjectPage user={user} />}
-      />
-      <Route
-        path="/project/create"
-        exact
-        component={() => (
-          <ProjectCreate user={user} setProjects={setProjects} />
-        )}
-      />
-      <Route
-        path="/project/:id/delete"
-        exact
-        component={() => <ProjectDelete />}
-      />
-      <Route path="/project/:id" exact component={() => <ProjectView />} />
-      <Route
-        path="/project/:projid/task/create"
-        exact
-        component={() => <TaskCreate />}
-      /> */}
       <Redirect from="/" to="/user/signin" />
     </Switch>
   );
