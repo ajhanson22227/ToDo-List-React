@@ -8,9 +8,6 @@ const ProjectPage = ({ user }) => {
   const projects = useProjects(user, setLoading);
   return (
     <div>
-      <div className="top-bar">
-        <p>Too-Doo</p>
-      </div>
       {loading ? (
         <p>is loading, hold on</p>
       ) : (
