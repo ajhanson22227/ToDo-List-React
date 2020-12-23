@@ -46,7 +46,7 @@
   display: inline-block;
   top: 322px;
   left: 458px;
-  width: 116px;
+  width: fit-content;
   height: 27px;
   text-align: left;
   font: normal normal 600 15px/20px Open Sans;
