@@ -12,32 +12,33 @@ const ProjectMain = ({ user, setProjects }) => {
       <div className="top-bar">
         <p>Too-Doo</p>
       </div>
-
-      <Switch>
-        <Route
-          path="/project"
-          exact
-          component={() => <ProjectPage user={user} />}
-        />
-        <Route
-          path="/project/create"
-          exact
-          component={() => (
-            <ProjectCreate user={user} setProjects={setProjects} />
-          )}
-        />
-        <Route
-          path="/project/:id/delete"
-          exact
-          component={() => <ProjectDelete />}
-        />
-        <Route path="/project/:id" exact component={() => <ProjectView />} />
-        <Route
-          path="/project/:projid/task/create"
-          exact
-          component={() => <TaskCreate />}
-        />
-      </Switch>
+      <div className="main-project">
+        <Switch>
+          <Route
+            path="/project"
+            exact
+            component={() => <ProjectPage user={user} />}
+          />
+          <Route
+            path="/project/create"
+            exact
+            component={() => (
+              <ProjectCreate user={user} setProjects={setProjects} />
+            )}
+          />
+          <Route
+            path="/project/:id/delete"
+            exact
+            component={() => <ProjectDelete />}
+          />
+          <Route path="/project/:id" exact component={() => <ProjectView />} />
+          <Route
+            path="/project/:projid/task/create"
+            exact
+            component={() => <TaskCreate />}
+          />
+        </Switch>
+      </div>
     </div>
   );
 };
