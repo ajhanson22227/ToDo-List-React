@@ -39,39 +39,51 @@ const SignUpPage = ({ setUser }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
+    <div className="sign-in-div">
+      <div className="sign-in-text">
+        <p>
+          Sign up for <span>Too-Doo</span>
+        </p>
+      </div>
+
+      <form className="sign-in-form" onSubmit={handleSubmit}>
+        <label className="sign-in-form-text"> Username: </label>
         <br />
-        <label>
-          Password:
-          <input
-            type="text"
-            name="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
+        <input
+          type="text"
+          className="sign-in-form-input"
+          autocomplete="off"
+          name="username"
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
+        />
         <br />
-        <label>
-          Confirm Password:
-          <input
-            type="text"
-            name="confirmPassword"
-            value={confirmPassword}
-            onChange={(event) => setConfirmPassword(event.target.value)}
-          />
-        </label>
+        <label className="sign-in-form-text">Password:</label>
         <br />
-        <input type="submit" value="Create Account" />
+        <input
+          type="text"
+          className="sign-in-form-input"
+          autocomplete="off"
+          name="password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
+        <br />
+        <label className="sign-in-form-text">Confirm Password:</label> <br />
+        <input
+          type="text"
+          className="sign-in-form-input"
+          autocomplete="off"
+          name="confirmPassword"
+          value={confirmPassword}
+          onChange={(event) => setConfirmPassword(event.target.value)}
+        />
+        <br />
+        <input
+          className="sign-in-form-submit"
+          type="submit"
+          value="Create Account"
+        />
       </form>
       <span style={{ color: "red" }}>{error ? error : null}</span>
     </div>
