@@ -1,14 +1,9 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { fetchUserStorage } from "./api/fetchCalls";
 import SignInPage from "./components/SignIn/SignInPage/SignInPage";
 import SignUpPage from "./components/SignIn/SignUpPage/SignUpPage";
-import ProjectPage from "./components/Project/ProjectPage/ProjectPage";
-import ProjectCreate from "./components/Project/ProjectCreate/ProjectCreate";
-import ProjectDelete from "./components/Project/ProjectDelete/ProjectDelete";
-import ProjectView from "./components/Project/ProjectView/ProjectView";
-import TaskCreate from "./components/Task/TaskCreate/TaskCreate";
 import ProjectMain from "./components/Project/ProjectMain";
 
 import "./App.css";
