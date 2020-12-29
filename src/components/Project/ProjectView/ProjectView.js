@@ -5,10 +5,12 @@ import Task from "../../Task/Task";
 
 const ProjectView = () => {
   const [busy, setBusy] = useState(true);
+  const [order, setOrder] = useState(1); //1 for low to high -1 for high to low
   const { id } = useParams();
   let { url } = useRouteMatch();
   const project = useProject(id, setBusy);
-  const tasks = project ? getTasks(project) : null;
+  let tasks = project ? getTasks(project) : null;
+  if (tasks) tasks = sortTasks(tasks, order);
   return busy ? (
     <p>No Bueno</p>
   ) : (
@@ -39,10 +41,42 @@ const useProject = (id, setBusy) => {
 
 const getTasks = (project) => {
   let taskArray = [];
+  project.tasks = sortTasks(project.tasks);
   for (let i in project.tasks) {
     taskArray.push(<Task key={i} task={project.tasks[i]} />);
   }
   return taskArray;
+};
+
+const sortTasks = (tasks, sortOrder) => {
+  console.log(sortOrder);
+  tasks.sort((a, b) => {
+    debugger;
+    if (
+      a.priority === "High" &&
+      (b.priority === "Low" || b.priority === "Medium")
+    ) {
+      debugger;
+      return sortOrder === 1 ? -1 : 1;
+    }
+    if (
+      a.priority === "Low" &&
+      (b.priority === "High" || b.priority === "Medium")
+    ) {
+      debugger;
+      return sortOrder === 1 ? 1 : -1;
+    }
+    if (a.priority === "Medium" && b.priority === "High") {
+      debugger;
+      return sortOrder === 1 ? 1 : -1;
+    }
+    if (a.priority === "Medium" && b.priority === "Low") {
+      debugger;
+      return sortOrder === 1 ? -1 : 1;
+    }
+    return 0;
+  });
+  return tasks;
 };
 
 export default ProjectView;
