@@ -1,10 +1,10 @@
 import React from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { deleteProject } from "../../../api/fetchCalls";
 
-const ProjectDelete = () => {
+const ProjectDelete = ({ projToDelete }) => {
   let history = useHistory();
-  let { id } = useParams();
+  let id = projToDelete._id;
 
   const handleCancel = () => {
     history.push("/project");
@@ -21,6 +21,12 @@ const ProjectDelete = () => {
     <div className="delete-form">
       <form onSubmit={handleSubmit}>
         <label>Are you Sure you want to delete this project?</label>
+        <p>
+          <span>{projToDelete.title}</span>
+          <span style={{ marginLeft: "1em", fontStyle: "italic" }}>
+            {projToDelete.description}
+          </span>
+        </p>
         <br />
         <input type="submit" value="Delete" />
         <input type="button" value="Cancel" onClick={handleCancel} />
