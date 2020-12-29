@@ -139,3 +139,15 @@
   text-decoration: underline;
   color: #142d4c;
 }
+
+.delete-modal {
+  position: fixed;
+  width: 20em;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.delete-modal-content {
+  background-color: white;
+  position: absolute;
+}
