@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { deleteProject } from "../../../api/fetchCalls";
 
-const ProjectDelete = ({ projToDelete }) => {
+const ProjectDelete = ({ projToDelete, setPDelete }) => {
   let history = useHistory();
   let id = projToDelete._id;
 
@@ -18,19 +18,25 @@ const ProjectDelete = ({ projToDelete }) => {
   };
 
   return (
-    <div className="delete-form">
-      <form onSubmit={handleSubmit}>
-        <label>Are you Sure you want to delete this project?</label>
-        <p>
-          <span>{projToDelete.title}</span>
-          <span style={{ marginLeft: "1em", fontStyle: "italic" }}>
-            {projToDelete.description}
-          </span>
-        </p>
-        <br />
-        <input type="submit" value="Delete" />
-        <input type="button" value="Cancel" onClick={handleCancel} />
-      </form>
+    <div className="delete-modal">
+      <div className="delete-modal-content">
+        <form onSubmit={handleSubmit}>
+          <label>Are you Sure you want to delete this project?</label>
+          <p>
+            <span>{projToDelete.title}</span>
+            <span style={{ marginLeft: "1em", fontStyle: "italic" }}>
+              {projToDelete.description}
+            </span>
+          </p>
+          <br />
+          <input type="submit" value="Delete" />
+          <input
+            type="button"
+            value="Cancel"
+            onClick={() => setPDelete(false)}
+          />
+        </form>
+      </div>
     </div>
   );
 };
