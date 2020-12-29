@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Project.css";
 
-const Project = ({ project }) => {
+const Project = ({ project, setPDelete, setProjToDelete }) => {
   return (
     <div className="project">
       <div className="project-information">
@@ -17,7 +17,16 @@ const Project = ({ project }) => {
           <Link to={`/project/${project._id}`}>View</Link>
         </div>
         <div className="project-link">
-          <Link to={`/project/${project._id}/delete`}>Delete</Link>
+          <p
+            href="#"
+            className="project-link"
+            onClick={() => {
+              setPDelete(true);
+              setProjToDelete(project);
+            }}
+          >
+            Delete
+          </p>
         </div>
       </div>
     </div>
