@@ -51,27 +51,22 @@ const getTasks = (project) => {
 const sortTasks = (tasks, sortOrder) => {
   console.log(sortOrder);
   tasks.sort((a, b) => {
-    debugger;
     if (
       a.priority === "High" &&
       (b.priority === "Low" || b.priority === "Medium")
     ) {
-      debugger;
       return sortOrder === 1 ? -1 : 1;
     }
     if (
       a.priority === "Low" &&
       (b.priority === "High" || b.priority === "Medium")
     ) {
-      debugger;
       return sortOrder === 1 ? 1 : -1;
     }
     if (a.priority === "Medium" && b.priority === "High") {
-      debugger;
       return sortOrder === 1 ? 1 : -1;
     }
     if (a.priority === "Medium" && b.priority === "Low") {
-      debugger;
       return sortOrder === 1 ? -1 : 1;
     }
     return 0;
