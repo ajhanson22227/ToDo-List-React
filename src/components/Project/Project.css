@@ -118,6 +118,10 @@
   letter-spacing: 0px;
   color: #f9f9f9;
 }
+.create-project-button:hover {
+  background-color: #71d2bb;
+  cursor: pointer;
+}
 
 .project-links-container {
   display: flex;
@@ -132,12 +136,16 @@
   cursor: pointer;
   color: #142d4c;
 }
-.project-link a:hover,
+
 .project-link a:visited,
 .project-link a:link,
 .project-link a:active {
   text-decoration: underline;
   color: #142d4c;
+}
+.project-link p:hover,
+.project-link a:hover {
+  color: #71d2bb;
 }
 
 .delete-modal {
