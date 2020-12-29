@@ -6,9 +6,6 @@ const ProjectDelete = ({ projToDelete, setPDelete }) => {
   let history = useHistory();
   let id = projToDelete._id;
 
-  const handleCancel = () => {
-    history.push("/project");
-  };
   const handleSubmit = async (event) => {
     event.preventDefault();
     await Promise.resolve(deleteProject(id));
