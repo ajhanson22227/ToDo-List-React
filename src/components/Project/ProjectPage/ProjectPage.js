@@ -26,7 +26,12 @@ const ProjectPage = ({ user }) => {
               <Link to={`/project/create`}>Create New Project</Link>
             </div>
           </div>
-          {pdelete ? <ProjectDelete projToDelete={projToDelete} /> : null}
+          {pdelete ? (
+            <ProjectDelete
+              projToDelete={projToDelete}
+              setPDelete={setPDelete}
+            />
+          ) : null}
 
           <div className="project-container">{projects}</div>
         </div>
