@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchProjects } from "../../../api/fetchCalls";
 import Project from "../Project";
+import ProjectDelete from "../ProjectDelete/ProjectDelete";
 
 const ProjectPage = ({ user }) => {
   const [loading, setLoading] = useState(false);
-  const projects = useProjects(user, setLoading);
+  const [pdelete, setPDelete] = useState(false);
+  const [projToDelete, setProjToDelete] = useState(null);
+  const projects = useProjects(user, setLoading, setPDelete, setProjToDelete);
   return (
     <div>
       {loading ? (
@@ -23,6 +26,7 @@ const ProjectPage = ({ user }) => {
               <Link to={`/project/create`}>Create New Project</Link>
             </div>
           </div>
+          {pdelete ? <ProjectDelete projToDelete={projToDelete} /> : null}
 
           <div className="project-container">{projects}</div>
         </div>
@@ -31,7 +35,7 @@ const ProjectPage = ({ user }) => {
   );
 };
 
-const useProjects = (user, setLoading) => {
+const useProjects = (user, setLoading, setPDelete, setProjToDelete) => {
   const [project, setProject] = useState(null);
 
   useEffect(() => {
@@ -46,7 +50,14 @@ const useProjects = (user, setLoading) => {
 
   let projectArray = [];
   for (let i in project) {
-    projectArray.push(<Project project={project[i]} key={i} />);
+    projectArray.push(
+      <Project
+        project={project[i]}
+        setPDelete={setPDelete}
+        setProjToDelete={setProjToDelete}
+        key={i}
+      />
+    );
   }
 
   return projectArray;
