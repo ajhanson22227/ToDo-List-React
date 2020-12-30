@@ -159,7 +159,6 @@
 }
 
 .project-view-project-description {
-  margin-left: 1em;
   font: italic normal normal 15px/20px Open Sans;
 }
 
@@ -193,4 +192,13 @@
 .task-container {
   width: 90%;
   text-align: center;
+}
+
+.sort-div {
+  width: 50%;
+  color: #929292;
+}
+
+.sort-div:hover {
+  cursor: pointer;
 }
