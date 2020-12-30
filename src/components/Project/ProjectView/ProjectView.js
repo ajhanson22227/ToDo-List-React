@@ -18,19 +18,34 @@ const ProjectView = () => {
     <div>
       <div className="project-view-top">
         <p>
-          <span className="project-view-project-title">{project.title}</span>{" "}
-          <span className="project-view-project-description">
+          <p className="project-view-project-title">{project.title}</p>{" "}
+          <p className="project-view-project-description">
             {project.description}
-          </span>
+          </p>
         </p>
       </div>
       <div className="project-view-task-body">
         <div className="task-body-top">
-          <p>
-            {project.tasks.length} Tasks{" "}
-            <Link to={`${url}/task/create`}>Add</Link>
-          </p>
-          <div>{tasks ? tasks : null}</div>
+          <div>
+            <span className="task-body-top-title">Too-Doo Tasks</span>{" "}
+            <span className="task-body-top-count">
+              ({project.tasks.length} Tasks)
+            </span>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "flex-end",
+            }}
+          >
+            <div>
+              Sort By <i class="fas fa-sort"></i>
+            </div>
+            <div>
+              <div className="create-project-button">New Task</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
