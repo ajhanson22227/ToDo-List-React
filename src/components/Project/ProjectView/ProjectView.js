@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link, useRouteMatch } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { fetchProject } from "../../../api/fetchCalls";
 import Task from "../../Task/Task";
 
@@ -7,7 +7,6 @@ const ProjectView = () => {
   const [busy, setBusy] = useState(true);
   const [order, setOrder] = useState(1); //1 for low to high -1 for high to low
   const { id } = useParams();
-  let { url } = useRouteMatch();
   const project = useProject(id, setBusy);
   let tasks = project ? getTasks(project) : null;
   if (tasks) tasks = sortTasks(tasks, order);
