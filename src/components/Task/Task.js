@@ -4,7 +4,7 @@ const Task = ({ task }) => {
   return (
     <div>
       <p>{task.description}</p>
-      <p>{task.priority} Priority</p>
+      <p className={`${task.priority}`}>{task.priority} Priority</p>
     </div>
   );
 };
