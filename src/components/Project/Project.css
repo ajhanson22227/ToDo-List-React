@@ -159,3 +159,66 @@
   background-color: white;
   position: absolute;
 }
+
+.project-view-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  background-color: #ffffff;
+  height: 5em;
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+.project-view-project-title,
+.project-view-project-description {
+  color: #385170;
+}
+
+.project-view-project-title {
+  font: normal normal bold 28px/38px Open Sans;
+}
+
+.project-view-project-description {
+  margin-left: 1em;
+  font: italic normal normal 15px/20px Open Sans;
+}
+
+.project-view-task-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  flex-direction: column;
+  width: 800px;
+  margin: 2em auto 0 auto;
+}
+
+.task-body-top {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-bottom: 0.2em solid #84d4c1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-basis: 90%;
+  width: 90%;
+}
+
+.task-body-top-title {
+  font: normal normal bold 15px/20px Open Sans;
+  letter-spacing: 0px;
+  color: #385170;
+}
+
+.task-body-top-count {
+  font: normal normal normal 15px/20px Open Sans;
+  letter-spacing: 0px;
+  color: #385170;
+}
+
+.task-container {
+  width: 90%;
+  text-align: center;
+}
