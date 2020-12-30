@@ -6,10 +6,10 @@ import Task from "../../Task/Task";
 const ProjectView = () => {
   const [busy, setBusy] = useState(true);
   const [order, setOrder] = useState(1); //1 for low to high -1 for high to low
+
   const { id } = useParams();
   const project = useProject(id, setBusy);
-  let tasks = project ? getTasks(project) : null;
-  if (tasks) tasks = sortTasks(tasks, order);
+  let tasks = getTasks(project, order);
 
   return busy ? (
     <p>No Bueno</p>
@@ -24,25 +24,29 @@ const ProjectView = () => {
 
       <div className="project-view-task-body df-col">
         <div className="task-body-top df-row df-space-between">
-          <div style={{ flexGrow: "1.5" }}>
+          <div className="section-1">
             <span className="task-body-top-title">Too-Doo Tasks</span>{" "}
             <span className="task-body-top-count">
               ({project.tasks.length} Tasks)
             </span>
           </div>
-          <div
-            style={{
-              flexGrow: "1",
-            }}
-          >
-            Sort By <i class="fas fa-sort"></i>
-          </div>
-          <div>
-            <div className="create-project-button">New Task</div>
+          <div className="section-2 df-row" style={{ alignItems: "flex-end" }}>
+            <div
+              className="sort-div"
+              onClick={() => {
+                setOrder(order === 1 ? -1 : 1);
+                sortTasks(tasks, order);
+              }}
+            >
+              Sort By <i className="fas fa-sort"></i>
+            </div>
+            <div style={{ width: "35%", margin: "auto" }}>
+              <div className="create-project-button">New Task</div>
+            </div>
           </div>
         </div>
 
-        <div class="task-container">{tasks}</div>
+        <div className="task-container">{tasks}</div>
       </div>
     </div>
   );
@@ -63,9 +67,10 @@ const useProject = (id, setBusy) => {
   return project;
 };
 
-const getTasks = (project) => {
+const getTasks = (project, order) => {
+  if (!project) return;
   let taskArray = [];
-  project.tasks = sortTasks(project.tasks);
+  project.tasks = sortTasks(project.tasks, order);
   for (let i in project.tasks) {
     taskArray.push(<Task key={i} task={project.tasks[i]} />);
   }
@@ -73,7 +78,6 @@ const getTasks = (project) => {
 };
 
 const sortTasks = (tasks, sortOrder) => {
-  console.log(sortOrder);
   tasks.sort((a, b) => {
     if (
       a.priority === "High" &&
