@@ -11,15 +11,28 @@ const ProjectView = () => {
   const project = useProject(id, setBusy);
   let tasks = project ? getTasks(project) : null;
   if (tasks) tasks = sortTasks(tasks, order);
+
   return busy ? (
     <p>No Bueno</p>
   ) : (
     <div>
-      <p>{project.title}</p> <p>{project.description}</p>
-      <p>
-        {project.tasks.length} Tasks <Link to={`${url}/task/create`}>Add</Link>
-      </p>
-      <div>{tasks ? tasks : null}</div>
+      <div className="project-view-top">
+        <p>
+          <span className="project-view-project-title">{project.title}</span>{" "}
+          <span className="project-view-project-description">
+            {project.description}
+          </span>
+        </p>
+      </div>
+      <div className="project-view-task-body">
+        <div className="task-body-top">
+          <p>
+            {project.tasks.length} Tasks{" "}
+            <Link to={`${url}/task/create`}>Add</Link>
+          </p>
+          <div>{tasks ? tasks : null}</div>
+        </div>
+      </div>
     </div>
   );
 };
