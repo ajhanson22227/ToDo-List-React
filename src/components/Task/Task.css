@@ -1,11 +1,8 @@
 .task {
   justify-content: space-between !important;
-  margin-top: 2em;
+  margin-top: 1em;
+  padding-bottom: 1em;
   border-bottom: 0.15em solid #d6d6d6;
-}
-
-.priority {
-  width: 50%;
 }
 
 .task-checkbox {
@@ -27,4 +24,21 @@
   justify-content: space-between;
   width: 50%;
   text-align: center;
+}
+
+.priority {
+  width: 50%;
+  height: 2em;
+  border-radius: 20px;
+}
+
+.Low {
+  background-color: #83d983;
+}
+.Medium {
+  background-color: #fbc362;
+}
+
+.High {
+  background-color: #f65353;
 }

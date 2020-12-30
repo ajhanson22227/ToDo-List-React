@@ -9,10 +9,10 @@ const Task = ({ task }) => {
         <div>{task.description}</div>
       </div>
       <div className="section-2 df-row">
-        <div className={`${task.priority} priority`}>
+        <div className={`${task.priority} priority df-row`}>
           {task.priority} Priority
         </div>
-        <div>Delete</div>
+        <div style={{ width: "50%" }}>Delete</div>
       </div>
     </div>
   );
