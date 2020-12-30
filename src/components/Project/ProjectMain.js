@@ -9,10 +9,10 @@ import TaskCreate from "../Task/TaskCreate/TaskCreate";
 const ProjectMain = ({ user, setProjects }) => {
   return (
     <div>
-      <div className="top-bar">
+      <div className="top-bar df-row">
         <p>Too-Doo</p>
       </div>
-      <div className="main-project">
+      <div className="df-col">
         <Switch>
           <Route
             path="/project"

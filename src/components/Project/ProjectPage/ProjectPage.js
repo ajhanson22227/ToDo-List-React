@@ -14,8 +14,8 @@ const ProjectPage = ({ user }) => {
       {loading ? (
         <p>is loading, hold on</p>
       ) : (
-        <div className="project-page-container">
-          <div className="header">
+        <div className="df-col">
+          <div className="header df-row df-space-between">
             <div className="user-info">
               <p className="welcome-text">Hello {user.username}!</p>
               <p className="project-number">
@@ -33,7 +33,7 @@ const ProjectPage = ({ user }) => {
             />
           ) : null}
 
-          <div className="project-container">{projects}</div>
+          <div className="df-col">{projects}</div>
         </div>
       )}
     </div>

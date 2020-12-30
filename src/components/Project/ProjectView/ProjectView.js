@@ -16,15 +16,15 @@ const ProjectView = () => {
     <p>No Bueno</p>
   ) : (
     <div>
-      <div className="project-view-top">
+      <div className="project-view-top df-col">
         <p className="project-view-project-title">{project.title}</p>{" "}
         <p className="project-view-project-description">
           {project.description}
         </p>
       </div>
 
-      <div className="project-view-task-body">
-        <div className="task-body-top">
+      <div className="project-view-task-body df-col">
+        <div className="task-body-top df-row df-space-between">
           <div style={{ flexGrow: "1.5" }}>
             <span className="task-body-top-title">Too-Doo Tasks</span>{" "}
             <span className="task-body-top-count">
@@ -33,19 +33,13 @@ const ProjectView = () => {
           </div>
           <div
             style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "flex-end",
-              justifyContent: "space-between",
               flexGrow: "1",
             }}
           >
-            <div>
-              Sort By <i class="fas fa-sort"></i>
-            </div>
-            <div>
-              <div className="create-project-button">New Task</div>
-            </div>
+            Sort By <i class="fas fa-sort"></i>
+          </div>
+          <div>
+            <div className="create-project-button">New Task</div>
           </div>
         </div>
 

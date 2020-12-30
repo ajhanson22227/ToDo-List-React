@@ -4,7 +4,7 @@ import "./Project.css";
 
 const Project = ({ project, setPDelete, setProjToDelete }) => {
   return (
-    <div className="project">
+    <div className="project df-row df-space-between">
       <div className="project-information">
         <p className="project-title">
           {project.title}{" "}
@@ -12,7 +12,7 @@ const Project = ({ project, setPDelete, setProjToDelete }) => {
         </p>
         <p className="project-tasks">{project.tasks.length} Tasks</p>
       </div>
-      <div className="project-links-container">
+      <div className="df-row">
         <div className="project-link">
           <Link to={`/project/${project._id}`}>View</Link>
         </div>

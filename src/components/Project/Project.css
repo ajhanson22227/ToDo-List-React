@@ -1,15 +1,20 @@
-.main-project {
+.df-col,
+.df-row {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.project-container {
-  display: flex;
+.df-col {
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+}
+
+.df-row {
+  flex-direction: row;
+}
+
+.df-space-between {
+  justify-content: space-between;
 }
 
 .project {
@@ -18,10 +23,6 @@
   max-width: 1000px;
   min-width: 500px;
   height: 5em;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
   margin-bottom: 0.5em;
 }
 
@@ -55,9 +56,6 @@
 }
 
 .top-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   top: 0px;
   left: 0px;
   width: 100%;
@@ -71,18 +69,7 @@
   color: #84d4c1;
 }
 
-.project-page-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .header {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-between;
   margin-top: 5em;
   margin-bottom: 4em;
   width: 50vw;
@@ -123,11 +110,6 @@
   cursor: pointer;
 }
 
-.project-links-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
 .project-link {
   margin-right: 2em;
   font: normal normal normal 15px/20px Open Sans;
@@ -161,10 +143,6 @@
 }
 
 .project-view-top {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
   width: 100vw;
   background-color: #ffffff;
   height: 5em;
@@ -186,11 +164,7 @@
 }
 
 .project-view-task-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: #ffffff;
-  flex-direction: column;
   width: 800px;
   margin: 2em auto 0 auto;
 }
@@ -199,9 +173,7 @@
   padding-top: 1em;
   padding-bottom: 1em;
   border-bottom: 0.2em solid #84d4c1;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-end !important;
   flex-basis: 90%;
   width: 90%;
 }
