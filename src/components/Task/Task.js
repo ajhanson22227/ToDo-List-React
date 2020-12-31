@@ -1,7 +1,7 @@
 import React from "react";
 import "./Task.css";
 
-const Task = ({ task }) => {
+const Task = ({ task, setTaskDelete, setTaskToDelete }) => {
   return (
     <div className=" task df-row">
       <div className="section-1 df-row">
@@ -12,7 +12,26 @@ const Task = ({ task }) => {
         <div className={`${task.priority} priority df-row`}>
           {task.priority} Priority
         </div>
-        <div style={{ width: "50%" }}>Delete</div>
+        <div
+          className="project-link"
+          style={{
+            width: "40%",
+            paddingLeft: "1em",
+            textAlign: "right",
+            marginRight: "0",
+          }}
+        >
+          <p
+            href="#"
+            className="project-link"
+            onClick={() => {
+              setTaskDelete(true);
+              setTaskToDelete(task);
+            }}
+          >
+            Delete
+          </p>
+        </div>
       </div>
     </div>
   );
