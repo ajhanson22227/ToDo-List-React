@@ -169,8 +169,8 @@
 }
 
 .task-body-top {
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-top: 3em;
+  padding-bottom: 2em;
   border-bottom: 0.2em solid #84d4c1;
   align-items: flex-end !important;
   flex-basis: 90%;
@@ -190,12 +190,12 @@
 }
 
 .task-container {
-  width: 90%;
+  width: 85%;
   text-align: center;
 }
 
 .sort-div {
-  width: 50%;
+  width: 40%;
   color: #929292;
 }
 
