@@ -4,7 +4,7 @@ import "./Project.css";
 
 const Project = ({ project, setPDelete, setProjToDelete }) => {
   return (
-    <div className="project df-row df-space-between">
+    <div className="project mw700 df-row df-space-between">
       <div className="project-information">
         <p className="project-title">
           {project.title}{" "}
