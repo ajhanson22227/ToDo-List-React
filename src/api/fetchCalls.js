@@ -79,3 +79,12 @@ export const createTask = (data) => {
     },
   });
 };
+
+export const deleteTask = (data) => {
+  fetch(`${URL}/task/${data}/delete`, {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+};
