@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams, useRouteMatch } from "react-router-dom";
 import { fetchProject } from "../../../api/fetchCalls";
 import Task from "../../Task/Task";
+import TaskDelete from "../../Task/TaskDelete/TaskDelete";
 
 const ProjectView = () => {
   const [busy, setBusy] = useState(true);
   const [order, setOrder] = useState(1); //1 for low to high -1 for high to low
+  const [taskDelete, setTaskDelete] = useState(false);
+  const [taskToDelete, setTaskToDelete] = useState(null);
 
   const { id } = useParams();
+  const { url } = useRouteMatch();
   const project = useProject(id, setBusy);
-  let tasks = getTasks(project, order);
+  let tasks = getTasks(project, order, setTaskDelete, setTaskToDelete);
 
   return busy ? (
     <p>No Bueno</p>
@@ -40,12 +44,19 @@ const ProjectView = () => {
             >
               Sort By <i className="fas fa-sort"></i>
             </div>
-            <div style={{ width: "35%", margin: "auto" }}>
-              <div className="create-project-button">New Task</div>
+            <div style={{ width: "35%", marginRight: "1em" }}>
+              <Link to={`${url}/task/create`} className="create-project-button">
+                New Task
+              </Link>
             </div>
           </div>
         </div>
-
+        {taskDelete ? (
+          <TaskDelete
+            setTaskDelete={setTaskDelete}
+            taskToDelete={taskToDelete}
+          />
+        ) : null}
         <div className="task-container">{tasks}</div>
       </div>
     </div>
@@ -67,12 +78,19 @@ const useProject = (id, setBusy) => {
   return project;
 };
 
-const getTasks = (project, order) => {
+const getTasks = (project, order, taskDelete, setTaskToDelete) => {
   if (!project) return;
   let taskArray = [];
   project.tasks = sortTasks(project.tasks, order);
   for (let i in project.tasks) {
-    taskArray.push(<Task key={i} task={project.tasks[i]} />);
+    taskArray.push(
+      <Task
+        key={i}
+        task={project.tasks[i]}
+        setTaskDelete={taskDelete}
+        setTaskToDelete={setTaskToDelete}
+      />
+    );
   }
   return taskArray;
 };
