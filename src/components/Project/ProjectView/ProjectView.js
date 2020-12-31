@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams, useRouteMatch } from "react-router-dom";
+import { Link, useParams, useRouteMatch, useHistory } from "react-router-dom";
 import { fetchProject } from "../../../api/fetchCalls";
 import Task from "../../Task/Task";
 import TaskDelete from "../../Task/TaskDelete/TaskDelete";
@@ -15,18 +15,35 @@ const ProjectView = () => {
   const project = useProject(id, setBusy);
   let tasks = getTasks(project, order, setTaskDelete, setTaskToDelete);
 
+  let history = useHistory();
+
+  const handleArrow = () => {
+    history.push("/project");
+  };
+
   return busy ? (
     <p>No Bueno</p>
   ) : (
     <div>
-      <div className="project-view-top df-col">
-        <p className="project-view-project-title">{project.title}</p>{" "}
-        <p className="project-view-project-description">
-          {project.description}
-        </p>
+      <div className="project-view-top">
+        <div className="df-row df-space-between mw700 center">
+          <div className="df-row ">
+            <i
+              onClick={handleArrow}
+              className="fas fa-arrow-left fa-3x toparrow"
+            ></i>
+          </div>
+          <div className="df-col">
+            <p className="project-view-project-title">{project.title}</p>{" "}
+            <p className="project-view-project-description">
+              {project.description}
+            </p>
+          </div>
+          <div></div>
+        </div>
       </div>
 
-      <div className="project-view-task-body df-col">
+      <div className="project-view-task-body mw700 df-col">
         <div className="task-body-top df-row df-space-between">
           <div className="section-1">
             <span className="task-body-top-title">Too-Doo Tasks</span>{" "}
@@ -44,7 +61,13 @@ const ProjectView = () => {
             >
               Sort By <i className="fas fa-sort"></i>
             </div>
-            <div style={{ width: "35%", marginRight: "1em" }}>
+            <div
+              style={{
+                width: "fit-content",
+                marginRight: "1em",
+                marginBottom: ".5em",
+              }}
+            >
               <Link to={`${url}/task/create`} className="create-project-button">
                 New Task
               </Link>
