@@ -13,7 +13,7 @@ const TaskDelete = ({ taskToDelete, setTaskDelete }) => {
     setTimeout(() => {
       setTaskDelete(false);
       history.push(url);
-    });
+    }, 500);
   };
 
   return (
