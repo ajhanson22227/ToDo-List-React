@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-const URL = "http://localhost:3000/api";
+const URL = "https://pure-crag-82741.herokuapp.com/api";
 
 export const fetchUserStorage = () => {
   try {
@@ -17,6 +17,9 @@ export const createUser = (data) => {
     body: JSON.stringify(data),
     headers: {
       "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+      "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
     },
   }).then((response) => response.json());
 };
