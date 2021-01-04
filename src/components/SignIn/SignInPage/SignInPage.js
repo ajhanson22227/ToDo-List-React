@@ -58,7 +58,7 @@ const SignInPage = ({ setUser }) => {
         <br />
         <input
           className="sign-in-form-input"
-          type="text"
+          type="password"
           name="password"
           autoComplete="off"
           value={password}

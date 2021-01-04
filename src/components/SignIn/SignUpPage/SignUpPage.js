@@ -61,7 +61,7 @@ const SignUpPage = ({ setUser }) => {
         <label className="sign-in-form-text">Password:</label>
         <br />
         <input
-          type="text"
+          type="password"
           className="sign-in-form-input"
           autocomplete="off"
           name="password"
@@ -71,7 +71,7 @@ const SignUpPage = ({ setUser }) => {
         <br />
         <label className="sign-in-form-text">Confirm Password:</label> <br />
         <input
-          type="text"
+          type="password"
           className="sign-in-form-input"
           autocomplete="off"
           name="confirmPassword"
