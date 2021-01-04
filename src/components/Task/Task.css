@@ -47,3 +47,14 @@
 .High {
   background-color: #f65353;
 }
+
+.completed {
+  text-decoration: line-through;
+}
+
+.task-desc {
+  font: normal normal 600 13px/18px Open Sans;
+  letter-spacing: 0px;
+  color: #385170;
+  opacity: 1;
+}
