@@ -3,12 +3,21 @@ import { Link } from "react-router-dom";
 import { fetchProjects } from "../../../api/fetchCalls";
 import Project from "../Project";
 import ProjectDelete from "../ProjectDelete/ProjectDelete";
+import ProjectCreate from "../ProjectCreate/ProjectCreate";
 
 const ProjectPage = ({ user }) => {
   const [loading, setLoading] = useState(false);
+  //states to determine project deletion
   const [pdelete, setPDelete] = useState(false);
   const [projToDelete, setProjToDelete] = useState(null);
+  //states to determine project creation
+  const [pcreate, setPCreate] = useState(false);
   const projects = useProjects(user, setLoading, setPDelete, setProjToDelete);
+
+  const handleProjectCreate = () => {
+    setPCreate(true);
+  };
+
   return (
     <div>
       {loading ? (
@@ -22,8 +31,11 @@ const ProjectPage = ({ user }) => {
                 You have {projects ? projects.length : 0} projects
               </p>
             </div>
-            <div className="create-project-button">
-              <Link to={`/project/create`}>Create New Project</Link>
+            <div
+              className="create-project-button"
+              onClick={handleProjectCreate}
+            >
+              <p>Create New Project</p>
             </div>
           </div>
           {pdelete ? (
@@ -31,6 +43,10 @@ const ProjectPage = ({ user }) => {
               projToDelete={projToDelete}
               setPDelete={setPDelete}
             />
+          ) : null}
+
+          {pcreate ? (
+            <ProjectCreate user={user} setPCreate={setPCreate} />
           ) : null}
 
           <div className="df-col">{projects}</div>
