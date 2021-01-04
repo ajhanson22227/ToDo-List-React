@@ -88,3 +88,13 @@ export const deleteTask = (data) => {
     },
   });
 };
+
+export const updateTaskCompletion = (data) => {
+  fetch(`${URL}/task/${data._id}/update`, {
+    method: "post",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+};
