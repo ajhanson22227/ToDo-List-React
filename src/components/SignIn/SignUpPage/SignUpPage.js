@@ -52,7 +52,7 @@ const SignUpPage = ({ setUser }) => {
         <input
           type="text"
           className="sign-in-form-input"
-          autocomplete="off"
+          autoComplete="off"
           name="username"
           value={username}
           onChange={(event) => setUsername(event.target.value)}
@@ -63,7 +63,7 @@ const SignUpPage = ({ setUser }) => {
         <input
           type="password"
           className="sign-in-form-input"
-          autocomplete="off"
+          autoComplete="off"
           name="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
@@ -73,7 +73,7 @@ const SignUpPage = ({ setUser }) => {
         <input
           type="password"
           className="sign-in-form-input"
-          autocomplete="off"
+          autoComplete="off"
           name="confirmPassword"
           value={confirmPassword}
           onChange={(event) => setConfirmPassword(event.target.value)}
