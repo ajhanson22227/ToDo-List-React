@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Task.css";
+import { updateTaskCompletion } from "../../api/fetchCalls";
 
 const Task = ({ task, setTaskDelete, setTaskToDelete }) => {
+  const [completed, setCompleted] = useState(task.completed);
+
+  const handleCheck = () => {
+    updateTaskCompletion(task);
+  };
+
   return (
     <div className=" task df-row">
       <div className="section-1 df-row">
-        <div className="task-checkbox"></div>
-        <div>{task.description}</div>
+        <input
+          className="task-checkbox"
+          type="checkbox"
+          checked={completed}
+          onChange={() => {
+            task.completed = !task.completed;
+            setCompleted(task.completed);
+            handleCheck();
+          }}
+        />
+        <div className={`${completed ? "completed" : null} task-desc`}>
+          {task.description}
+        </div>
       </div>
       <div className="section-2 df-row">
         <div className={`${task.priority} priority df-row`}>
