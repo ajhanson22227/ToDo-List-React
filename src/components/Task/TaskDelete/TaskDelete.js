@@ -17,20 +17,26 @@ const TaskDelete = ({ taskToDelete, setTaskDelete }) => {
   };
 
   return (
-    <div className="delete-modal">
+    <div className="delete-modal df-col">
       <div className="delete-modal-content">
         <form onSubmit={handleSubmit}>
-          <label>Are you Sure you want to delete this task?</label>
-          <p>
-            <span>{taskToDelete.description}</span>
-          </p>
+          <label className="delete-modal-label">
+            Are you Sure you want to delete this task?
+          </label>
           <br />
-          <input type="submit" value="Delete" />
-          <input
-            type="button"
-            value="Cancel"
-            onClick={() => setTaskDelete(false)}
-          />
+          <div className="delete-modal-button-container df-row">
+            <input
+              className="delete-modal-button button"
+              type="submit"
+              value="Yes"
+            />
+            <input
+              className="delete-modal-button button"
+              type="button"
+              value="Cancel"
+              onClick={() => setTaskDelete(false)}
+            />
+          </div>
         </form>
       </div>
     </div>

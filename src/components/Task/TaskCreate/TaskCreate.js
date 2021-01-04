@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { createTask } from "../../../api/fetchCalls";
 
 const TaskCreate = ({ projid, setTCreate }) => {
@@ -29,37 +29,59 @@ const TaskCreate = ({ projid, setTCreate }) => {
   return (
     <div className="create-modal">
       <div className="create-modal-content">
-        <p>Create a Task</p>
+        <div className="create-modal-exit" onClick={() => setTCreate(false)}>
+          X
+        </div>
+        <div className="create-modal-title">Create New Task</div>
         <form onSubmit={handleSubmit}>
-          <label>
-            Description
-            <br />
-            <input
-              type="text"
-              name="description"
-              value={description}
-              onChange={handleDescription}
-            />
-          </label>
+          <label className="sign-in-form-text">Description</label>
+          <br />
+          <input
+            className="create-modal-input"
+            type="text"
+            name="description"
+            value={description}
+            onChange={handleDescription}
+          />
+
           <br />
           <label onChange={handlePriority}>
-            Priority
+            <div className="priority-label">Priority</div>
             <br />
-            <label>
-              <input type="radio" name="priority" value="Low" />
+            <label className="create-modal-radio-label">
+              <input
+                className="create-modal-radio"
+                type="radio"
+                name="priority"
+                value="Low"
+              />
               Low
             </label>
-            <label>
-              <input type="radio" name="priority" value="Medium" />
+            <label className="create-modal-radio-label">
+              <input
+                className="create-modal-radio"
+                type="radio"
+                name="priority"
+                value="Medium"
+              />
               Medium
             </label>
-            <label>
-              <input type="radio" name="priority" value="High" />
+            <label className="create-modal-radio-label">
+              <input
+                className="create-modal-radio"
+                type="radio"
+                name="priority"
+                value="High"
+              />
               High
             </label>
           </label>
           <br />
-          <input type="submit" value="Add" />
+          <input
+            className="create-modal-submit button task-create-submit"
+            type="submit"
+            value="Add"
+          />
         </form>
       </div>
     </div>
