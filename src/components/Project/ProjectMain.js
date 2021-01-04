@@ -31,13 +31,6 @@ const ProjectMain = ({ user, setProjects }) => {
             component={() => <ProjectPage user={user} />}
           />
           <Route
-            path="/project/create"
-            exact
-            component={() => (
-              <ProjectCreate user={user} setProjects={setProjects} />
-            )}
-          />
-          <Route
             path="/project/:id/delete"
             exact
             component={() => <ProjectDelete />}
