@@ -66,7 +66,11 @@ const SignInPage = ({ setUser }) => {
         />
 
         <br />
-        <input className="sign-in-form-submit" type="submit" value="Sign In" />
+        <input
+          className="sign-in-form-submit button"
+          type="submit"
+          value="Sign In"
+        />
       </form>
       <span style={{ color: "red" }}>{error ? error : null}</span>
       <p className="no-account-text">
