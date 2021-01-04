@@ -23,7 +23,7 @@ const ProjectPage = ({ user }) => {
         <p>is loading, hold on</p>
       ) : (
         <div className="df-col">
-          <div className="header df-row df-space-between">
+          <div className="header mw700 df-row df-space-between">
             <div className="user-info">
               <p className="welcome-text">Hello {user.username}!</p>
               <p className="project-number">
