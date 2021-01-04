@@ -34,11 +34,10 @@ const ProjectMain = ({ user, setProjects }) => {
             exact
             component={() => <ProjectDelete />}
           />
-          <Route path="/project/:id" exact component={() => <ProjectView />} />
           <Route
-            path="/project/:projid/task/create"
+            path="/project/:projid"
             exact
-            component={() => <TaskCreate />}
+            component={() => <ProjectView />}
           />
         </Switch>
       </div>
