@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { fetchProjects } from "../../../api/fetchCalls";
 import Project from "../Project";
 import ProjectDelete from "../ProjectDelete/ProjectDelete";
