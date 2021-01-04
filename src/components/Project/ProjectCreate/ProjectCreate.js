@@ -46,7 +46,11 @@ const ProjectCreate = ({ user, setPCreate }) => {
           />
 
           <br />
-          <input className="create-modal-submit" type="submit" value="Create" />
+          <input
+            className="create-modal-submit button"
+            type="submit"
+            value="Create"
+          />
         </form>
       </div>
     </div>
