@@ -18,7 +18,7 @@ const ProjectMain = ({ user, setProjects }) => {
         <div className="topbar-content-container mw700 df-row df-space-between">
           <div>Too-Doo</div>
           <div className="topbar-logout" onClick={handleLogout}>
-            Log Out <i class="fas fa-sign-out-alt"></i>
+            Log Out <i className="fas fa-sign-out-alt"></i>
           </div>
         </div>
       </div>
