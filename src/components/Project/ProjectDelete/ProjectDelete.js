@@ -15,23 +15,26 @@ const ProjectDelete = ({ projToDelete, setPDelete }) => {
   };
 
   return (
-    <div className="delete-modal">
+    <div className="delete-modal df-col">
       <div className="delete-modal-content">
         <form onSubmit={handleSubmit}>
-          <label>Are you Sure you want to delete this project?</label>
-          <p>
-            <span>{projToDelete.title}</span>
-            <span style={{ marginLeft: "1em", fontStyle: "italic" }}>
-              {projToDelete.description}
-            </span>
-          </p>
+          <label className="delete-modal-label">
+            Are you Sure you want to delete this project?
+          </label>
           <br />
-          <input type="submit" value="Delete" />
-          <input
-            type="button"
-            value="Cancel"
-            onClick={() => setPDelete(false)}
-          />
+          <div className="delete-modal-button-container df-row">
+            <input
+              className="delete-modal-button button"
+              type="submit"
+              value="Yes"
+            />
+            <input
+              className="delete-modal-button button"
+              type="button"
+              value="Cancel"
+              onClick={() => setPDelete(false)}
+            />
+          </div>
         </form>
       </div>
     </div>
