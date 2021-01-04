@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { createUser } from "../../../api/fetchCalls";
 
 const SignUpPage = ({ setUser }) => {
@@ -80,12 +80,18 @@ const SignUpPage = ({ setUser }) => {
         />
         <br />
         <input
-          className="sign-in-form-submit"
+          className="sign-in-form-submit button"
           type="submit"
           value="Create Account"
         />
       </form>
       <span style={{ color: "red" }}>{error ? error : null}</span>
+      <p className="no-account-text">
+        Already have an account?{" "}
+        <Link className="sign-up-link" to="/user/signin">
+          Sign In
+        </Link>
+      </p>
     </div>
   );
 };
