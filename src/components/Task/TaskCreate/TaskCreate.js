@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { createTask } from "../../../api/fetchCalls";
 
-const TaskCreate = () => {
-  const { projid } = useParams();
+const TaskCreate = ({ projid, setTCreate }) => {
   let history = useHistory();
   const [description, setDescription] = useState("");
   const [priority, setPriority] = useState("");
@@ -28,39 +27,41 @@ const TaskCreate = () => {
   };
 
   return (
-    <div>
-      <p>Create a Task</p>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Description
+    <div className="create-modal">
+      <div className="create-modal-content">
+        <p>Create a Task</p>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Description
+            <br />
+            <input
+              type="text"
+              name="description"
+              value={description}
+              onChange={handleDescription}
+            />
+          </label>
           <br />
-          <input
-            type="text"
-            name="description"
-            value={description}
-            onChange={handleDescription}
-          />
-        </label>
-        <br />
-        <label onChange={handlePriority}>
-          Priority
+          <label onChange={handlePriority}>
+            Priority
+            <br />
+            <label>
+              <input type="radio" name="priority" value="Low" />
+              Low
+            </label>
+            <label>
+              <input type="radio" name="priority" value="Medium" />
+              Medium
+            </label>
+            <label>
+              <input type="radio" name="priority" value="High" />
+              High
+            </label>
+          </label>
           <br />
-          <label>
-            <input type="radio" name="priority" value="Low" />
-            Low
-          </label>
-          <label>
-            <input type="radio" name="priority" value="Medium" />
-            Medium
-          </label>
-          <label>
-            <input type="radio" name="priority" value="High" />
-            High
-          </label>
-        </label>
-        <br />
-        <input type="submit" value="Add" />
-      </form>
+          <input type="submit" value="Add" />
+        </form>
+      </div>
     </div>
   );
 };
