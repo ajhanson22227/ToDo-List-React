@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams, useRouteMatch, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { fetchProject } from "../../../api/fetchCalls";
 import Task from "../../Task/Task";
 import TaskCreate from "../../Task/TaskCreate/TaskCreate";
@@ -14,7 +14,7 @@ const ProjectView = () => {
   const [tcreate, setTCreate] = useState(false);
 
   const { projid } = useParams();
-  const { url } = useRouteMatch();
+
   const project = useProject(projid, setBusy);
   let tasks = getTasks(project, order, setTaskDelete, setTaskToDelete);
 
