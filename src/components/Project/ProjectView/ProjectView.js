@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams, useRouteMatch, useHistory } from "react-router-dom";
 import { fetchProject } from "../../../api/fetchCalls";
 import Task from "../../Task/Task";
+import TaskCreate from "../../Task/TaskCreate/TaskCreate";
 import TaskDelete from "../../Task/TaskDelete/TaskDelete";
 
 const ProjectView = () => {
@@ -9,10 +10,12 @@ const ProjectView = () => {
   const [order, setOrder] = useState(1); //1 for low to high -1 for high to low
   const [taskDelete, setTaskDelete] = useState(false);
   const [taskToDelete, setTaskToDelete] = useState(null);
+  //states to determine task creation
+  const [tcreate, setTCreate] = useState(false);
 
-  const { id } = useParams();
+  const { projid } = useParams();
   const { url } = useRouteMatch();
-  const project = useProject(id, setBusy);
+  const project = useProject(projid, setBusy);
   let tasks = getTasks(project, order, setTaskDelete, setTaskToDelete);
 
   let history = useHistory();
@@ -25,6 +28,7 @@ const ProjectView = () => {
     <p>No Bueno</p>
   ) : (
     <div>
+      {tcreate ? <TaskCreate setTCreate={setTCreate} projid={projid} /> : null}
       <div className="project-view-top">
         <div className="df-row df-space-between mw700 center">
           <div className="df-row ">
@@ -68,9 +72,12 @@ const ProjectView = () => {
                 marginBottom: ".5em",
               }}
             >
-              <Link to={`${url}/task/create`} className="create-project-button">
-                New Task
-              </Link>
+              <div
+                className="create-project-button"
+                onClick={() => setTCreate(true)}
+              >
+                <p>New Task</p>
+              </div>
             </div>
           </div>
         </div>
