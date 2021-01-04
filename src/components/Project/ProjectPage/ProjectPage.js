@@ -27,7 +27,7 @@ const ProjectPage = ({ user }) => {
             <div className="user-info">
               <p className="welcome-text">Hello {user.username}!</p>
               <p className="project-number">
-                You have {projects ? projects.length : 0} projects
+                You have {projects ? projects.length : 0} project(s)
               </p>
             </div>
             <div
