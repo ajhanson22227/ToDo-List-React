@@ -19,30 +19,34 @@ const ProjectCreate = ({ user, setPCreate }) => {
   };
 
   return (
-    <div className="delete-modal">
-      <div className="delete-modal-content">
+    <div className="create-modal">
+      <div className="create-modal-content">
+        <div className="create-modal-exit" onClick={() => setPCreate(false)}>
+          X
+        </div>
+        <div className="create-modal-title">Create New Project</div>
         <form onSubmit={handleSubmit}>
-          <label>
-            Title
-            <br />
-            <input
-              type="text"
-              onChange={(event) => setTitle(event.target.value)}
-              value={title}
-            />
-          </label>
+          <label className="sign-in-form-text">Title</label>
           <br />
-          <label>
-            Description
-            <br />
-            <input
-              type="text"
-              onChange={(event) => setDescription(event.target.value)}
-              value={description}
-            />
-          </label>
+          <input
+            className="create-modal-input"
+            type="text"
+            onChange={(event) => setTitle(event.target.value)}
+            value={title}
+          />
+
           <br />
-          <input type="submit" value="Create" />
+          <label className="sign-in-form-text">Description </label>
+          <br />
+          <input
+            className="create-modal-input"
+            type="text"
+            onChange={(event) => setDescription(event.target.value)}
+            value={description}
+          />
+
+          <br />
+          <input className="create-modal-submit" type="submit" value="Create" />
         </form>
       </div>
     </div>
