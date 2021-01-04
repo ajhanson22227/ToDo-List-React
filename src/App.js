@@ -31,6 +31,6 @@ const App = () => {
       <Redirect from="/" to="/user/signin" />
     </Switch>
   );
-};
+  .
 
 export default App;
