@@ -27,7 +27,7 @@ const ProjectView = () => {
   return busy ? (
     <p>No Bueno</p>
   ) : (
-    <div>
+    <div className="view-container">
       {tcreate ? <TaskCreate setTCreate={setTCreate} projid={projid} /> : null}
       <div className="project-view-top">
         <div className="df-row df-space-between mw700 center">

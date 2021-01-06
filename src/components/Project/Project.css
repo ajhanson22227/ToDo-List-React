@@ -393,3 +393,30 @@ input[type="text"]:focus,
 input[type="password"]:focus {
   outline: none;
 }
+
+
+@media only screen and (max-width: 600px) {
+  .mw700{
+    min-width: 100%;;
+    width: 100%;
+  }
+  .topbar-content-container{
+    padding: 0 1em;
+  }
+
+  .header{
+    padding: 0 1em;
+  }
+
+  .create-project-button{
+    width: 150px;
+  }
+
+  .project-description{
+    display: none
+  }
+
+  .view-container{
+    min-width: 100%;
+  }
+}

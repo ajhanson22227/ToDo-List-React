@@ -12,7 +12,7 @@ const ProjectMain = ({ user, setProjects }) => {
   };
 
   return (
-    <div>
+    <div className="main-container">
       <div className="top-bar df-row">
         <div className="topbar-content-container mw700 df-row df-space-between">
           <div>Too-Doo</div>

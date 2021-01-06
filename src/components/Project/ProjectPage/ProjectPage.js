@@ -18,7 +18,7 @@ const ProjectPage = ({ user }) => {
   };
 
   return (
-    <div>
+    <div className="view-container">
       {loading ? (
         <p>is loading, hold on</p>
       ) : (
@@ -48,7 +48,7 @@ const ProjectPage = ({ user }) => {
             <ProjectCreate user={user} setPCreate={setPCreate} />
           ) : null}
 
-          <div className="df-col">{projects}</div>
+          <div className="df-col ">{projects}</div>
         </div>
       )}
     </div>
