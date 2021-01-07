@@ -4,6 +4,7 @@ import { fetchProject } from "../../../api/fetchCalls";
 import Task from "../../Task/Task";
 import TaskCreate from "../../Task/TaskCreate/TaskCreate";
 import TaskDelete from "../../Task/TaskDelete/TaskDelete";
+import Loader from "../../Loader/Loader";
 
 const ProjectView = () => {
   const [busy, setBusy] = useState(true);
@@ -25,7 +26,7 @@ const ProjectView = () => {
   };
 
   return busy ? (
-    <p>No Bueno</p>
+    <Loader />
   ) : (
     <div className="view-container">
       {tcreate ? <TaskCreate setTCreate={setTCreate} projid={projid} /> : null}

@@ -3,6 +3,7 @@ import { fetchProjects } from "../../../api/fetchCalls";
 import Project from "../Project";
 import ProjectDelete from "../ProjectDelete/ProjectDelete";
 import ProjectCreate from "../ProjectCreate/ProjectCreate";
+import Loader from "../../Loader/Loader";
 
 const ProjectPage = ({ user }) => {
   const [loading, setLoading] = useState(false);
@@ -20,7 +21,7 @@ const ProjectPage = ({ user }) => {
   return (
     <div className="view-container">
       {loading ? (
-        <p>is loading, hold on</p>
+        <Loader />
       ) : (
         <div className="df-col">
           <div className="header mw700 df-row df-space-between">
