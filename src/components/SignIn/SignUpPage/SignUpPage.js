@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { createUser } from "../../../api/fetchCalls";
 
-const SignUpPage = ({ setUser }) => {
+const SignUpPage = ({ setUser, setLoading }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -23,11 +23,13 @@ const SignUpPage = ({ setUser }) => {
       setConfirmPassword("");
       return;
     }
+    setLoading(true);
     const user = {
       username: username,
       password: password,
     };
     const res = await Promise.resolve(createUser(user));
+    setLoading(false);
     if (res.err) {
       setError(res.err);
       return;

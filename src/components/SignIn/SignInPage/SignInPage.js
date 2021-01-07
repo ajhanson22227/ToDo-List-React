@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { loginUser } from "../../../api/fetchCalls";
 import "./SignIn.css";
 
-const SignInPage = ({ setUser }) => {
+const SignInPage = ({ setUser, setLoading }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -18,11 +18,13 @@ const SignInPage = ({ setUser }) => {
     } else {
       setError("");
     }
+    setLoading(true);
     const user = {
       username: username,
       password: password,
     };
     const res = await Promise.resolve(loginUser(user));
+    setLoading(false);
     if (res.err) {
       setError(res.err);
       return;
