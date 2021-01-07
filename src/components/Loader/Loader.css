@@ -1,5 +1,5 @@
 .loading-wheel {
-    border: 16px solid #f3f3f3; /* Light grey */
+    border: 16px solid grey; /* Light grey */
     border-top: 16px solid #3498db; /* Blue */
     border-radius: 50%;
     width: 120px;
@@ -13,4 +13,13 @@
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+  }
+
+  .loading-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: rgba(0,0,0,.3);
   }
