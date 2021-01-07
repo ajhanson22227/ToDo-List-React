@@ -42,56 +42,53 @@ const SignInPage = ({ setUser }) => {
 
   return (
     <div>
-      {loading ? (
-        <Loader />
-      ) : (
-        <div className="sign-in-div">
-          <div className="sign-in-text">
-            <p>
-              Sign in to <span>Too-Doo</span>
-            </p>
-          </div>
-
-          <form className="sign-in-form" onSubmit={handleSubmit}>
-            <label className="sign-in-form-text">Username:</label>
-            <br />
-            <input
-              className="sign-in-form-input"
-              type="text"
-              name="username"
-              autoComplete="off"
-              value={username}
-              onChange={(event) => setUsername(event.target.value)}
-            />
-
-            <br />
-            <label className="sign-in-form-text">Password:</label>
-            <br />
-            <input
-              className="sign-in-form-input"
-              type="password"
-              name="password"
-              autoComplete="off"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-            />
-
-            <br />
-            <input
-              className="sign-in-form-submit button"
-              type="submit"
-              value="Sign In"
-            />
-          </form>
-          <span style={{ color: "red" }}>{error ? error : null}</span>
-          <p className="no-account-text">
-            Don't have an account?{" "}
-            <Link className="sign-up-link" to="/user/signup">
-              Sign Up Here!
-            </Link>
+      {loading ? <Loader /> : null}
+      <div className="sign-in-div">
+        <div className="sign-in-text">
+          <p>
+            Sign in to <span>Too-Doo</span>
           </p>
         </div>
-      )}
+
+        <form className="sign-in-form" onSubmit={handleSubmit}>
+          <label className="sign-in-form-text">Username:</label>
+          <br />
+          <input
+            className="sign-in-form-input"
+            type="text"
+            name="username"
+            autoComplete="off"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+          />
+
+          <br />
+          <label className="sign-in-form-text">Password:</label>
+          <br />
+          <input
+            className="sign-in-form-input"
+            type="password"
+            name="password"
+            autoComplete="off"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+
+          <br />
+          <input
+            className="sign-in-form-submit button"
+            type="submit"
+            value="Sign In"
+          />
+        </form>
+        <span style={{ color: "red" }}>{error ? error : null}</span>
+        <p className="no-account-text">
+          Don't have an account?{" "}
+          <Link className="sign-up-link" to="/user/signup">
+            Sign Up Here!
+          </Link>
+        </p>
+      </div>
     </div>
   );
 };

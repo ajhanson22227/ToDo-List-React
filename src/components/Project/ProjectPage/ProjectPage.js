@@ -20,38 +20,27 @@ const ProjectPage = ({ user }) => {
 
   return (
     <div className="view-container">
-      {loading ? (
-        <Loader />
-      ) : (
-        <div className="df-col">
-          <div className="header mw700 df-row df-space-between">
-            <div className="user-info">
-              <p className="welcome-text">Hello {user.username}!</p>
-              <p className="project-number">
-                You have {projects ? projects.length : 0} project(s)
-              </p>
-            </div>
-            <div
-              className="create-project-button"
-              onClick={handleProjectCreate}
-            >
-              <p>Create New Project</p>
-            </div>
+      {loading ? <Loader /> : null}
+      <div className="df-col">
+        <div className="header mw700 df-row df-space-between">
+          <div className="user-info">
+            <p className="welcome-text">Hello {user.username}!</p>
+            <p className="project-number">
+              You have {projects ? projects.length : 0} project(s)
+            </p>
           </div>
-          {pdelete ? (
-            <ProjectDelete
-              projToDelete={projToDelete}
-              setPDelete={setPDelete}
-            />
-          ) : null}
-
-          {pcreate ? (
-            <ProjectCreate user={user} setPCreate={setPCreate} />
-          ) : null}
-
-          <div className="df-col ">{projects}</div>
+          <div className="create-project-button" onClick={handleProjectCreate}>
+            <p>Create New Project</p>
+          </div>
         </div>
-      )}
+        {pdelete ? (
+          <ProjectDelete projToDelete={projToDelete} setPDelete={setPDelete} />
+        ) : null}
+
+        {pcreate ? <ProjectCreate user={user} setPCreate={setPCreate} /> : null}
+
+        <div className="df-col ">{projects}</div>
+      </div>
     </div>
   );
 };
