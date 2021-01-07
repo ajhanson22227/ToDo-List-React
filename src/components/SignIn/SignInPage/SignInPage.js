@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { loginUser } from "../../../api/fetchCalls";
+import Loader from "../../Loader/Loader";
 import "./SignIn.css";
 
-const SignInPage = ({ setUser, setLoading }) => {
+const SignInPage = ({ setUser }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  const [loading, setLoading] = useState(false);
+
   let history = useHistory();
 
   const handleSubmit = async (event) => {
@@ -27,6 +31,7 @@ const SignInPage = ({ setUser, setLoading }) => {
     setLoading(false);
     if (res.err) {
       setError(res.err);
+      setPassword("");
       return;
     } else {
       localStorage.setItem("user", JSON.stringify(res.user));
@@ -36,51 +41,57 @@ const SignInPage = ({ setUser, setLoading }) => {
   };
 
   return (
-    <div className="sign-in-div">
-      <div className="sign-in-text">
-        <p>
-          Sign in to <span>Too-Doo</span>
-        </p>
-      </div>
+    <div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="sign-in-div">
+          <div className="sign-in-text">
+            <p>
+              Sign in to <span>Too-Doo</span>
+            </p>
+          </div>
 
-      <form className="sign-in-form" onSubmit={handleSubmit}>
-        <label className="sign-in-form-text">Username:</label>
-        <br />
-        <input
-          className="sign-in-form-input"
-          type="text"
-          name="username"
-          autoComplete="off"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-        />
+          <form className="sign-in-form" onSubmit={handleSubmit}>
+            <label className="sign-in-form-text">Username:</label>
+            <br />
+            <input
+              className="sign-in-form-input"
+              type="text"
+              name="username"
+              autoComplete="off"
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+            />
 
-        <br />
-        <label className="sign-in-form-text">Password:</label>
-        <br />
-        <input
-          className="sign-in-form-input"
-          type="password"
-          name="password"
-          autoComplete="off"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
+            <br />
+            <label className="sign-in-form-text">Password:</label>
+            <br />
+            <input
+              className="sign-in-form-input"
+              type="password"
+              name="password"
+              autoComplete="off"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+            />
 
-        <br />
-        <input
-          className="sign-in-form-submit button"
-          type="submit"
-          value="Sign In"
-        />
-      </form>
-      <span style={{ color: "red" }}>{error ? error : null}</span>
-      <p className="no-account-text">
-        Don't have an account?{" "}
-        <Link className="sign-up-link" to="/user/signup">
-          Sign Up Here!
-        </Link>
-      </p>
+            <br />
+            <input
+              className="sign-in-form-submit button"
+              type="submit"
+              value="Sign In"
+            />
+          </form>
+          <span style={{ color: "red" }}>{error ? error : null}</span>
+          <p className="no-account-text">
+            Don't have an account?{" "}
+            <Link className="sign-up-link" to="/user/signup">
+              Sign Up Here!
+            </Link>
+          </p>
+        </div>
+      )}
     </div>
   );
 };
