@@ -395,6 +395,7 @@ input[type="password"]:focus {
 }
 
 
+
 @media only screen and (max-width: 600px) {
   .mw700{
     min-width: 100%;;
@@ -423,4 +424,74 @@ input[type="password"]:focus {
   .project{
     width: 100vw;
   }
+
+  .create-modal{
+    width: 350px;
+    height: 300px;
+    margin-left: -175px;
+    margin-top: -150px;
+  }
+
+  .create-modal-content{
+    width: 350px;
+    height: 340px;
+  }
+
+  .create-modal-title {
+    font: normal normal bold 24px Montserrat;
+    color: #385170;
+    margin: 0.5em 0 1em 0;
+  }
+  
+  .create-modal-input {
+    background-color: #ececec;
+    border: none;
+    width: 285px;
+    height: 27px;
+    margin-bottom: 1em;
+  }
 }
+
+@media only screen and (max-width: 350px){
+  .create-modal{
+    width: 300px;
+    height: 300px;
+    margin-left: -150px;
+    margin-top: -150px;
+  }
+
+  .create-modal-content{
+    width: 300px;
+    height: 340px;
+  }
+
+  .create-modal-title {
+    font: normal normal bold 18px Montserrat;
+    color: #385170;
+    margin: 0.5em 0 1em 0;
+  }
+  .create-modal-input {
+    background-color: #ececec;
+    border: none;
+    width: 230px;
+    height: 27px;
+    margin-bottom: 1em;
+  }
+
+  .welcome-text {
+    text-align: left;
+    font: normal normal bold 30px/37px Montserrat;
+    letter-spacing: 0px;
+    color: #385170;
+    opacity: 1;
+  }
+  
+  .project-number {
+    text-align: left;
+    font: normal normal normal 15px/20px Open Sans;
+    letter-spacing: 0px;
+    color: #385170;
+    opacity: 1;
+  }
+}
+
