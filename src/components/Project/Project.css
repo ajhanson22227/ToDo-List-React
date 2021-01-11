@@ -450,6 +450,13 @@ input[type="password"]:focus {
     height: 27px;
     margin-bottom: 1em;
   }
+
+  .create-project-button {
+
+    padding: 0.6em 1.4em;
+    width: 150px;
+    font: normal normal bold 12px Open Sans;
+  }
 }
 
 @media only screen and (max-width: 350px){
@@ -479,19 +486,18 @@ input[type="password"]:focus {
   }
 
   .welcome-text {
-    text-align: left;
-    font: normal normal bold 30px/37px Montserrat;
-    letter-spacing: 0px;
-    color: #385170;
-    opacity: 1;
+    font: normal normal bold 26px Montserrat;
   }
   
   .project-number {
-    text-align: left;
-    font: normal normal normal 15px/20px Open Sans;
-    letter-spacing: 0px;
-    color: #385170;
-    opacity: 1;
+    font: normal normal normal 12px Open Sans;
+  }
+
+  .create-project-button {
+
+    padding: 0.6em 1.4em;
+    width: 150px;
+    font: normal normal bold 12px Open Sans;
   }
 }
 
