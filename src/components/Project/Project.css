@@ -419,4 +419,8 @@ input[type="password"]:focus {
   .view-container{
     min-width: 100%;
   }
+
+  .project{
+    width: 100vw;
+  }
 }
