@@ -3,7 +3,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 9em;
+  height: 100vh;
+  /* background: transparent linear-gradient(180deg, #486992 0%, #1A2A3E 100%) 0% 0% no-repeat padding-box; */
+  background-color: #385170;
+  opacity: 1;
 }
 
 .sign-in-text {
@@ -22,7 +25,7 @@
   text-align: left;
   font: normal normal bold 28px/37px Montserrat;
   letter-spacing: 0px;
-  color: #385170;
+  color: #F9F9F9;
 }
 
 .sign-in-text p span {
@@ -49,7 +52,7 @@
   text-align: left;
   font: normal normal 600 15px/20px Open Sans;
   letter-spacing: 0px;
-  color: #385170;
+  color: #F9F9F9;
   opacity: 1;
   margin-top: 0.5em;
 }
@@ -71,16 +74,21 @@
   left: 458px;
   width: 155px !important;
   height: 38px;
-  background: #385170 0% 0% no-repeat padding-box;
+  background: #84D4C1 0% 0% no-repeat padding-box;
   border-radius: 5px;
   opacity: 1;
-  color: #f9f9f9;
+  color: #385170;
 
   text-align: center;
   font: normal normal bold 15px/20px Open Sans;
   letter-spacing: 0px;
-  color: #f9f9f9;
   opacity: 1;
+}
+
+.sign-in-form-submit:hover{
+  cursor: pointer;
+  background-color: #F9F9F9;
+
 }
 
 .no-account-text {
@@ -89,9 +97,10 @@
   text-align: left;
   font: normal normal normal 15px/20px Open Sans;
   letter-spacing: 0px;
-  color: #142d4c;
+  color: #F9F9F9;
   opacity: 1;
 }
+
 
 .sign-up-link {
   margin-left: 1em;
@@ -100,14 +109,17 @@
   text-decoration: underline;
   font: normal normal normal 15px/20px Open Sans;
   letter-spacing: 0px;
-  color: #142d4c;
+  color: #84D4C1;
   opacity: 1;
+}
+
+.sign-up-link:hover{
+  color: #f9f9f9;
 }
 
 .no-account-text a:hover,
 .no-account-text a:visited,
 .no-account-text a:link,
 .no-account-text a:active {
-  color: #142d4c;
   text-decoration: underline;
 }
