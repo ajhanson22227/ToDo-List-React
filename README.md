@@ -6,6 +6,9 @@ I had originnaly completed this in JavaScript, my original repo can be found at 
 
 I wanted to recreate this project using React for the frontend and Express for the backend which can be found at https://github.com/ajhanson22227/ToDo-List-Express.
 
+## View Live
+  https://ajhanson22227.github.io/ToDo-List-React
+
 ## Motivation
 
 I wanted to redo this project as a way to further work my knowledge with frontend and backend interactions. After working on the blog project, I wanted to do something else that would work with user accounts and information provided to them. The 'To Do' project seemed like the best way to go.
