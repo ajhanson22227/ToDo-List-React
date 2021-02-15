@@ -76,7 +76,7 @@ const SignInPage = ({ setUser }) => {
 
           <br />
           <input
-            className="sign-in-form-submit button"
+            className="sign-in-form-submit"
             type="submit"
             value="Sign In"
           />
