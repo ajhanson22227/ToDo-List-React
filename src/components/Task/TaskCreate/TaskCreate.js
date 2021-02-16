@@ -34,7 +34,7 @@ const TaskCreate = ({ projid, setTCreate }) => {
         </div>
         <div className="create-modal-title">Create New Task</div>
         <form onSubmit={handleSubmit}>
-          <label className="sign-in-form-text">Description</label>
+          <label className="form-text">Description</label>
           <br />
           <input
             className="create-modal-input"

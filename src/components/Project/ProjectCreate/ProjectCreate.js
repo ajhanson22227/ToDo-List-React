@@ -26,7 +26,7 @@ const ProjectCreate = ({ user, setPCreate }) => {
         </div>
         <div className="create-modal-title">Create New Project</div>
         <form onSubmit={handleSubmit}>
-          <label className="sign-in-form-text">Title</label>
+          <label className="form-text">Title</label>
           <br />
           <input
             className="create-modal-input"
@@ -36,7 +36,7 @@ const ProjectCreate = ({ user, setPCreate }) => {
           />
 
           <br />
-          <label className="sign-in-form-text">Description </label>
+          <label className="form-text">Description </label>
           <br />
           <input
             className="create-modal-input"
